@@ -8,8 +8,9 @@
 
   <title>Udit Raghav | Accountant & Accounts Professional</title>
 
-  <meta name="description"
-        content="Official portfolio of Udit Raghav, an accounts professional skilled in accounting, GST, Tally, billing and Microsoft Excel.">
+  <meta name="description" content="Official portfolio of Udit Raghav, a B.Com graduate with experience in accounting, GST, Tally, billing and Microsoft Excel.">
+
+  <meta name="author" content="Udit Raghav">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,116 +38,6 @@
       scroll-padding-top: 90px;
     }
 
-<!-- Namaste Welcome Animation -->
-<style>
-  #namaste-welcome {
-    position: fixed;
-    inset: 0;
-    z-index: 99999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(5, 10, 25, 0.88);
-    backdrop-filter: blur(8px);
-    animation: welcomeBg 0.5s ease;
-  }
-
-  .namaste-box {
-    text-align: center;
-    color: white;
-    padding: 25px;
-    animation: welcomePop 0.8s ease both;
-  }
-
-  .namaste-cartoons {
-    display: flex;
-    justify-content: center;
-    gap: 28px;
-    font-size: clamp(75px, 15vw, 125px);
-  }
-
-  .namaste-person {
-    display: inline-block;
-    animation: namasteBow 1.3s ease-in-out infinite alternate;
-    transform-origin: bottom center;
-  }
-
-  .namaste-person:nth-child(2) {
-    animation-delay: 0.25s;
-  }
-
-  .namaste-box h2 {
-    margin: 18px 0 8px;
-    color: #fcd783;
-    font-size: clamp(25px, 5vw, 38px);
-  }
-
-  .namaste-box p {
-    margin-bottom: 20px;
-    color: #e2e8f0;
-  }
-
-  #namaste-close {
-    padding: 12px 26px;
-    border: 0;
-    border-radius: 30px;
-    background: linear-gradient(100deg, #fbbf24, #fb923c);
-    color: #271300;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-
-  @keyframes namasteBow {
-    from { transform: translateY(0) rotate(-4deg); }
-    to { transform: translateY(-10px) rotate(4deg); }
-  }
-
-  @keyframes welcomePop {
-    from { opacity: 0; transform: scale(0.7); }
-    to { opacity: 1; transform: scale(1); }
-  }
-
-  @keyframes welcomeBg {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .namaste-person { animation: none; }
-  }
-</style>
-
-<div id="namaste-welcome" role="dialog"
-     aria-label="Welcome to Udit Raghav's website">
-  <div class="namaste-box">
-    <div class="namaste-cartoons">
-      <span class="namaste-person">🧑🏻‍🦱🙏</span>
-      <span class="namaste-person">👩🏻🙏</span>
-    </div>
-    <h2>🙏 Namaste Good Day! 🙏</h2>
-    <p>Aapki apni website par aapka swagat hai.</p>
-    <button id="namaste-close" type="button">
-      Enter Website →
-    </button>
-  </div>
-</div>
-
-<script>
-  document.getElementById("namaste-close").addEventListener("click", function () {
-    const welcome = document.getElementById("namaste-welcome");
-    welcome.style.transition = "opacity 0.5s ease";
-    welcome.style.opacity = "0";
-
-    setTimeout(function () {
-      welcome.remove();
-    }, 500);
-  });
-
-
-  
-</script>
-
     body {
       background: var(--bg);
       color: var(--text);
@@ -160,10 +51,16 @@
       text-decoration: none;
     }
 
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
     .container {
       width: min(1100px, 90%);
       margin: auto;
     }
+
+    /* Background effects */
 
     .glow {
       position: fixed;
@@ -188,12 +85,110 @@
       top: 45%;
     }
 
+    /* Welcome animation */
+
+    #namaste-welcome {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background: rgba(5, 10, 25, .90);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      animation: welcomeBg .5s ease;
+    }
+
+    .namaste-box {
+      width: min(480px, 100%);
+      text-align: center;
+      color: white;
+      padding: 30px 20px;
+      background: rgba(16, 24, 43, .94);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      animation: welcomePop .8s ease both;
+    }
+
+    .namaste-cartoons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 22px;
+      font-size: clamp(55px, 13vw, 100px);
+    }
+
+    .namaste-person {
+      display: inline-block;
+      animation: namasteBow 1.3s ease-in-out infinite alternate;
+      transform-origin: bottom center;
+    }
+
+    .namaste-person:nth-child(2) {
+      animation-delay: .25s;
+    }
+
+    .namaste-box h2 {
+      margin: 18px 0 8px;
+      color: #fcd783;
+      font-size: clamp(24px, 5vw, 34px);
+      letter-spacing: 0;
+    }
+
+    .namaste-box p {
+      margin-bottom: 22px;
+      color: #e2e8f0;
+      font-size: 14px;
+    }
+
+    #namaste-close {
+      padding: 12px 26px;
+      border: 0;
+      border-radius: 30px;
+      background: linear-gradient(100deg, #fbbf24, #fb923c);
+      color: #271300;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .2s ease;
+    }
+
+    #namaste-close:hover {
+      transform: translateY(-2px);
+    }
+
+    #namaste-welcome.is-closing {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .45s ease, visibility .45s ease;
+    }
+
+    @keyframes namasteBow {
+      from { transform: translateY(0) rotate(-4deg); }
+      to { transform: translateY(-8px) rotate(4deg); }
+    }
+
+    @keyframes welcomePop {
+      from { opacity: 0; transform: scale(.75); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes welcomeBg {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Navigation */
+
     header {
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: rgba(8,13,27,.86);
+      z-index: 100;
+      background: rgba(8, 13, 27, .88);
       backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
     }
 
@@ -209,6 +204,7 @@
       font-family: 'Space Grotesk', sans-serif;
       font-size: 23px;
       font-weight: 700;
+      white-space: nowrap;
     }
 
     .logo span {
@@ -223,10 +219,17 @@
       color: var(--muted);
     }
 
+    .nav-links a,
+    .social a {
+      transition: color .2s ease;
+    }
+
     .nav-links a:hover,
     .social a:hover {
       color: var(--accent);
     }
+
+    /* Hero */
 
     .hero {
       min-height: 610px;
@@ -280,10 +283,11 @@
       border-radius: 10px;
       font-weight: 600;
       font-size: 13px;
-      transition: .25s;
+      transition: .25s ease;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      cursor: pointer;
     }
 
     .btn.primary {
@@ -294,8 +298,10 @@
 
     .btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(100,140,255,.15);
+      box-shadow: 0 10px 30px rgba(100, 140, 255, .15);
     }
+
+    /* Sections */
 
     section {
       padding: 75px 0;
@@ -323,6 +329,8 @@
       margin-bottom: 32px;
     }
 
+    /* Cards */
+
     .grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -331,15 +339,15 @@
 
     .card {
       padding: 25px;
-      background: linear-gradient(145deg, rgba(19,29,51,.92), rgba(12,19,35,.95));
+      background: linear-gradient(145deg, rgba(19, 29, 51, .92), rgba(12, 19, 35, .95));
       border: 1px solid var(--border);
       border-radius: 16px;
-      transition: transform .25s, border-color .25s;
+      transition: transform .25s ease, border-color .25s ease;
     }
 
     .card:hover {
       transform: translateY(-5px);
-      border-color: rgba(118,169,255,.5);
+      border-color: rgba(118, 169, 255, .5);
     }
 
     .icon {
@@ -352,7 +360,8 @@
       margin-bottom: 9px;
     }
 
-    .card p, .card li {
+    .card p,
+    .card li {
       font-size: 13px;
       color: var(--muted);
     }
@@ -360,6 +369,8 @@
     .card ul {
       padding-left: 18px;
     }
+
+    /* About */
 
     .about-layout {
       display: grid;
@@ -400,6 +411,8 @@
       font-size: 14px;
     }
 
+    /* Skills */
+
     .skill-list {
       display: flex;
       flex-wrap: wrap;
@@ -409,14 +422,16 @@
     .skill {
       padding: 10px 15px;
       border-radius: 9px;
-      border: 1px solid rgba(118,169,255,.22);
-      background: rgba(118,169,255,.07);
+      border: 1px solid rgba(118, 169, 255, .22);
+      background: rgba(118, 169, 255, .07);
       color: #d8e4ff;
       font-size: 13px;
     }
 
+    /* Experience timeline */
+
     .timeline {
-      border-left: 1px solid rgba(118,169,255,.4);
+      border-left: 1px solid rgba(118, 169, 255, .4);
       margin-left: 7px;
       padding-left: 25px;
     }
@@ -424,6 +439,10 @@
     .timeline-item {
       position: relative;
       padding: 0 0 28px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
     }
 
     .timeline-item::before {
@@ -435,7 +454,7 @@
       height: 11px;
       background: var(--accent);
       border-radius: 50%;
-      box-shadow: 0 0 15px rgba(118,169,255,.4);
+      box-shadow: 0 0 15px rgba(118, 169, 255, .4);
     }
 
     .timeline-item p {
@@ -444,12 +463,31 @@
       margin-top: 5px;
     }
 
+    /* Resume */
+
+    .resume-box {
+      margin-top: 30px;
+      padding: 25px;
+      text-align: center;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+    }
+
+    .resume-box p {
+      color: var(--muted);
+      margin-bottom: 18px;
+      font-size: 14px;
+    }
+
+    /* Contact */
+
     .contact-box {
       text-align: center;
       border: 1px solid var(--border);
       border-radius: 22px;
       padding: 45px 25px;
-      background: radial-gradient(ellipse at top, rgba(91,120,220,.13), transparent 70%);
+      background: radial-gradient(ellipse at top, rgba(91, 120, 220, .13), transparent 70%);
     }
 
     .contact-box h2 {
@@ -472,12 +510,14 @@
 
     .social a {
       border: 1px solid var(--border);
-      background: rgba(255,255,255,.03);
+      background: rgba(255, 255, 255, .03);
       border-radius: 10px;
       padding: 10px 15px;
       font-size: 12px;
-      transition: .2s;
+      transition: .2s ease;
     }
+
+    /* Footer */
 
     footer {
       border-top: 1px solid var(--border);
@@ -486,6 +526,8 @@
       color: var(--muted);
       font-size: 12px;
     }
+
+    /* Scroll reveal */
 
     .reveal {
       opacity: 0;
@@ -497,6 +539,8 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Responsive design */
 
     @media (max-width: 760px) {
       nav {
@@ -528,12 +572,24 @@
     }
 
     @media (max-width: 480px) {
+      .container {
+        width: 92%;
+      }
+
       .grid {
         grid-template-columns: 1fr;
       }
 
       section {
         padding: 55px 0;
+      }
+
+      .eyebrow {
+        letter-spacing: 2px;
+      }
+
+      .contact-box {
+        padding: 35px 18px;
       }
     }
 
@@ -542,8 +598,15 @@
         scroll-behavior: auto;
       }
 
-      *, *::before, *::after {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
         transition-duration: .01ms !important;
+      }
+
+      .namaste-person {
+        animation: none;
       }
 
       .reveal {
@@ -555,30 +618,67 @@
 </head>
 
 <body>
-  <div class="glow one"></div>
-  <div class="glow two"></div>
 
+  <!-- Background effects -->
+  <div class="glow one" aria-hidden="true"></div>
+  <div class="glow two" aria-hidden="true"></div>
+
+  <!-- Namaste welcome popup -->
+  <div id="namaste-welcome"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="welcome-title">
+
+    <div class="namaste-box">
+
+      <div class="namaste-cartoons" aria-hidden="true">
+        <span class="namaste-person">🧑🏻‍🦱🙏</span>
+        <span class="namaste-person">👩🏻🙏</span>
+      </div>
+
+      <h2 id="welcome-title">🙏 Namaste, Good Day! 🙏</h2>
+
+      <p>Aapki apni website par aapka swagat hai.</p>
+
+      <button id="namaste-close" type="button">
+        Enter Website →
+      </button>
+
+    </div>
+  </div>
+
+  <!-- Navigation -->
   <header>
     <nav class="container">
-      <a class="logo" href="#home">Udit<span>.</span></a>
+
+      <a class="logo" href="#home" aria-label="Udit Raghav Home">
+        Udit<span>.</span>
+      </a>
 
       <div class="nav-links">
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
+        <a href="#services">Expertise</a>
         <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
       </div>
+
     </nav>
   </header>
 
   <main>
+
+    <!-- Hero section -->
     <section class="hero container" id="home">
-      <div class="eyebrow">Welcome to my professional portfolio</div>
+
+      <div class="eyebrow">
+        Welcome to my professional portfolio
+      </div>
 
       <h1>
         Hi, I'm <span>Udit Raghav.</span><br>
-        Accounts & Finance Professional.
+        Accounts &amp; Finance Professional.
       </h1>
 
       <p>
@@ -588,22 +688,32 @@
       </p>
 
       <div class="actions">
-        <a class="btn primary" href="#about">Discover My Profile ↗</a>
-        <a class="btn" href="mailto:uditraghav0@gmail.com">Contact Me ✉</a>
+        <a class="btn primary" href="#about">
+          Discover My Profile ↗
+        </a>
+
+        <a class="btn" href="mailto:uditraghav0@gmail.com">
+          Contact Me ✉
+        </a>
       </div>
 
     </section>
 
+    <!-- About section -->
     <section id="about">
       <div class="container reveal">
+
         <div class="section-label">01 / About Me</div>
+
         <h2>A little about myself.</h2>
 
         <div class="about-layout">
+
           <div class="about-copy">
+
             <p>
-              My name is Udit Raghav. I have completed my Bachelor of
-              Commerce (B.Com) and have gained practical experience
+              My name is Udit Raghav. I have completed my Bachelor
+              of Commerce (B.Com) and gained practical experience
               working in accounting, including exposure to a CA firm
               and accounts department responsibilities.
             </p>
@@ -620,9 +730,11 @@
               my technical knowledge, maintaining accuracy and
               contributing responsibly to an organization's accounts team.
             </p>
+
           </div>
 
           <div class="facts">
+
             <div class="fact">
               <small>Education</small>
               <strong>Bachelor of Commerce (B.Com)</strong>
@@ -630,7 +742,7 @@
 
             <div class="fact">
               <small>Professional Interest</small>
-              <strong>Accounting & Tax Compliance</strong>
+              <strong>Accounting &amp; Tax Compliance</strong>
             </div>
 
             <div class="fact">
@@ -640,17 +752,22 @@
 
             <div class="fact">
               <small>Core Focus</small>
-              <strong>Accuracy, Compliance & Learning</strong>
+              <strong>Accuracy, Compliance &amp; Learning</strong>
             </div>
+
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Skills section -->
     <section id="skills">
       <div class="container reveal">
+
         <div class="section-label">02 / My Expertise</div>
+
         <h2>Skills that I bring.</h2>
+
         <p class="section-intro">
           Accounting knowledge and practical office skills that support
           organized, reliable and efficient financial operations.
@@ -658,27 +775,37 @@
 
         <div class="skill-list">
           <span class="skill">📊 Accounting</span>
-          <span class="skill">🧾 Billing & Invoicing</span>
+          <span class="skill">🧾 Billing &amp; Invoicing</span>
           <span class="skill">📘 GST Compliance</span>
           <span class="skill">💻 Tally ERP</span>
           <span class="skill">💻 Tally Prime</span>
           <span class="skill">📈 Microsoft Excel</span>
           <span class="skill">📝 Microsoft Word</span>
           <span class="skill">🏦 Bank Reconciliation (BRS)</span>
-          <span class="skill">🛒 Purchase & Sales Entries</span>
-          <span class="skill">📑 GSTR-1 & GSTR-3B</span>
+          <span class="skill">🛒 Purchase &amp; Sales Entries</span>
+          <span class="skill">📑 GSTR-1 &amp; GSTR-3B</span>
           <span class="skill">🔎 GSTR-2B Reconciliation</span>
           <span class="skill">📂 Record Management</span>
         </div>
+
       </div>
     </section>
 
+    <!-- Accounting expertise -->
     <section id="services">
       <div class="container reveal">
+
         <div class="section-label">03 / What I Work On</div>
+
         <h2>My accounting toolkit.</h2>
 
+        <p class="section-intro">
+          A selection of accounting and administrative areas relevant
+          to my professional experience and ongoing learning.
+        </p>
+
         <div class="grid">
+
           <article class="card">
             <div class="icon">📚</div>
             <h3>Bookkeeping</h3>
@@ -690,7 +817,7 @@
 
           <article class="card">
             <div class="icon">🧾</div>
-            <h3>GST & Returns</h3>
+            <h3>GST &amp; Returns</h3>
             <p>
               Working with sales data, purchase reconciliation,
               GST return preparation and related compliance tasks.
@@ -708,7 +835,7 @@
 
           <article class="card">
             <div class="icon">📊</div>
-            <h3>Excel & Reporting</h3>
+            <h3>Excel &amp; Reporting</h3>
             <p>
               Organizing financial data, preparing spreadsheets
               and supporting routine reporting tasks.
@@ -717,7 +844,7 @@
 
           <article class="card">
             <div class="icon">💳</div>
-            <h3>Payables & Receivables</h3>
+            <h3>Payables &amp; Receivables</h3>
             <p>
               Supporting outstanding balance tracking and
               payment and collection records.
@@ -732,16 +859,21 @@
               and organized accounting files.
             </p>
           </article>
+
         </div>
       </div>
     </section>
 
+    <!-- Experience section -->
     <section id="experience">
       <div class="container reveal">
+
         <div class="section-label">04 / Professional Journey</div>
+
         <h2>Learning through experience.</h2>
 
         <div class="timeline">
+
           <div class="timeline-item">
             <h3>Accounts Department</h3>
             <p>
@@ -765,14 +897,50 @@
               taxation, reconciliations and financial reporting.
             </p>
           </div>
+
         </div>
+
+        <!-- Resume buttons -->
+        <div class="resume-box">
+
+          <div class="section-label">My Resume</div>
+
+          <h2>Explore my CV.</h2>
+
+          <p>
+            View or download my resume to learn more about
+            my qualifications and accounting skills.
+          </p>
+
+          <div class="actions" style="justify-content:center">
+
+            <a class="btn primary"
+               href="Udit_Raghav_CV.pdf"
+               target="_blank"
+               rel="noopener noreferrer">
+              📄 View My Resume
+            </a>
+
+            <a class="btn"
+               href="Udit_Raghav_CV.pdf"
+               download="Udit_Raghav_CV.pdf">
+              ⬇ Download Resume
+            </a>
+
+          </div>
+        </div>
+
       </div>
     </section>
 
+    <!-- Contact section -->
     <section id="contact">
       <div class="container reveal">
+
         <div class="contact-box">
+
           <div class="section-label">05 / Let's Connect</div>
+
           <h2>Let's build something professional.</h2>
 
           <p>
@@ -787,13 +955,16 @@
           </a>
 
           <div class="social">
+
             <a href="https://www.instagram.com/thakur_udit_raghav/"
-               target="_blank" rel="noopener noreferrer">
+               target="_blank"
+               rel="noopener noreferrer">
               Instagram ↗
             </a>
 
             <a href="https://www.facebook.com/thakur.udit.raghav"
-               target="_blank" rel="noopener noreferrer">
+               target="_blank"
+               rel="noopener noreferrer">
               Facebook ↗
             </a>
 
@@ -802,24 +973,20 @@
             </a>
 
             <a href="https://www.linkedin.com/in/udit-raghav/"
-               target="_blank" rel="noopener noreferrer">
+               target="_blank"
+               rel="noopener noreferrer">
               LinkedIn ↗
             </a>
+
           </div>
+
         </div>
       </div>
     </section>
-    
-<a class="btn" href="Udit_Raghav_CV.pdf" target="_blank" rel="noopener">
-                                                                                                                                                                           📄 View My Resume
-</a>
-
-<a class="btn" href="resume.pdf" download>
-                                                                                                                                                                           ⬇ Download Resume
-</a>
 
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="container">
       © <span id="year"></span> Udit Raghav. Built with dedication.
@@ -829,21 +996,55 @@
   </footer>
 
   <script>
+    "use strict";
+
+    // Welcome popup
+    const welcome = document.getElementById("namaste-welcome");
+    const closeButton = document.getElementById("namaste-close");
+
+    function closeWelcome() {
+      if (!welcome) return;
+
+      welcome.classList.add("is-closing");
+
+      // Remove popup after the fade-out animation.
+      window.setTimeout(function () {
+        welcome.remove();
+      }, 450);
+    }
+
+    closeButton.addEventListener("click", closeWelcome);
+
+    // Current year in the footer
     document.getElementById("year").textContent =
       new Date().getFullYear();
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
+    // Scroll reveal animation
+    const revealElements = document.querySelectorAll(".reveal");
 
-    document.querySelectorAll(".reveal").forEach((element) => {
-      observer.observe(element);
-    });
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        function (entries, currentObserver) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              currentObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      revealElements.forEach(function (element) {
+        observer.observe(element);
+      });
+    } else {
+      // Fallback for older browsers
+      revealElements.forEach(function (element) {
+        element.classList.add("visible");
+      });
+    }
   </script>
+
 </body>
 </html>
