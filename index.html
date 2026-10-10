@@ -37,6 +37,113 @@
       scroll-padding-top: 90px;
     }
 
+<!-- Namaste Welcome Animation -->
+<style>
+  #namaste-welcome {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(5, 10, 25, 0.88);
+    backdrop-filter: blur(8px);
+    animation: welcomeBg 0.5s ease;
+  }
+
+  .namaste-box {
+    text-align: center;
+    color: white;
+    padding: 25px;
+    animation: welcomePop 0.8s ease both;
+  }
+
+  .namaste-cartoons {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    font-size: clamp(75px, 15vw, 125px);
+  }
+
+  .namaste-person {
+    display: inline-block;
+    animation: namasteBow 1.3s ease-in-out infinite alternate;
+    transform-origin: bottom center;
+  }
+
+  .namaste-person:nth-child(2) {
+    animation-delay: 0.25s;
+  }
+
+  .namaste-box h2 {
+    margin: 18px 0 8px;
+    color: #fcd783;
+    font-size: clamp(25px, 5vw, 38px);
+  }
+
+  .namaste-box p {
+    margin-bottom: 20px;
+    color: #e2e8f0;
+  }
+
+  #namaste-close {
+    padding: 12px 26px;
+    border: 0;
+    border-radius: 30px;
+    background: linear-gradient(100deg, #fbbf24, #fb923c);
+    color: #271300;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  @keyframes namasteBow {
+    from { transform: translateY(0) rotate(-4deg); }
+    to { transform: translateY(-10px) rotate(4deg); }
+  }
+
+  @keyframes welcomePop {
+    from { opacity: 0; transform: scale(0.7); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  @keyframes welcomeBg {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .namaste-person { animation: none; }
+  }
+</style>
+
+<div id="namaste-welcome" role="dialog"
+     aria-label="Welcome to Udit Raghav's website">
+  <div class="namaste-box">
+    <div class="namaste-cartoons">
+      <span class="namaste-person">🧑🏻‍🦱🙏</span>
+      <span class="namaste-person">👩🏻🙏</span>
+    </div>
+    <h2>🙏 Namaste Good Day! 🙏</h2>
+    <p>Aapki apni website par aapka swagat hai.</p>
+    <button id="namaste-close" type="button">
+      Enter Website →
+    </button>
+  </div>
+</div>
+
+<script>
+  document.getElementById("namaste-close").addEventListener("click", function () {
+    const welcome = document.getElementById("namaste-welcome");
+    welcome.style.transition = "opacity 0.5s ease";
+    welcome.style.opacity = "0";
+
+    setTimeout(function () {
+      welcome.remove();
+    }, 500);
+  });
+</script>
+
     body {
       background: var(--bg);
       color: var(--text);
