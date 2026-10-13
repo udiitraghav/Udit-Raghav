@@ -1228,4 +1228,78 @@
   fly();
 })();
 </script>
-```
+```html
+<style>
+#snake-background {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.flying-snake {
+  position: absolute;
+  font-size: 35px;
+  opacity: 0.75;
+  filter: drop-shadow(0 0 7px #20e070);
+  will-change: transform;
+}
+
+.flying-snake span {
+  display: inline-block;
+  animation: snakeWiggle 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes snakeWiggle {
+  from {
+    transform: rotate(-18deg) translateY(-5px);
+  }
+  to {
+    transform: rotate(18deg) translateY(5px);
+  }
+}
+</style>
+
+<div id="snake-background"></div>
+
+<script>
+(() => {
+  const bg = document.getElementById("snake-background");
+
+  for (let i = 0; i < 5; i++) {
+    const snake = document.createElement("div");
+    snake.className = "flying-snake";
+    snake.innerHTML = "<span>🐍</span>";
+    bg.appendChild(snake);
+
+    const duration = 12000 + Math.random() * 14000;
+    const startX = Math.random() * 100;
+    const startY = Math.random() * 85;
+
+    snake.animate([
+      {
+        left: startX + "%",
+        top: startY + "%",
+        transform: "rotate(0deg) scale(1)"
+      },
+      {
+        left: (startX + 15) % 100 + "%",
+        top: (startY + 12) % 90 + "%",
+        transform: "rotate(180deg) scale(1.15)"
+      },
+      {
+        left: (startX + 30) % 100 + "%",
+        top: (startY + 3) % 90 + "%",
+        transform: "rotate(360deg) scale(1)"
+      }
+    ], {
+      duration,
+      iterations: Infinity,
+      direction: "alternate",
+      easing: "ease-in-out",
+      delay: -Math.random() * duration
+    });
+  }
+})();
+</script>
