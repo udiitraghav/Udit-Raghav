@@ -652,7 +652,7 @@
     <nav class="container">
 
       <a class="logo" href="#home" aria-label="Udit Raghav Home">
-        Udit Raghav<span>.</span>
+        Udit<span>.</span>
       </a>
 
       <div class="nav-links">
@@ -995,7 +995,59 @@
     </div>
   </footer>
 
+  <script>
+    "use strict";
 
+    // Welcome popup
+    const welcome = document.getElementById("namaste-welcome");
+    const closeButton = document.getElementById("namaste-close");
+
+    function closeWelcome() {
+      if (!welcome) return;
+
+      welcome.classList.add("is-closing");
+
+      // Remove popup after the fade-out animation.
+      window.setTimeout(function () {
+        welcome.remove();
+      }, 450);
+    }
+
+    closeButton.addEventListener("click", closeWelcome);
+
+    // Current year in the footer
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Scroll reveal animation
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        function (entries, currentObserver) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              currentObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      revealElements.forEach(function (element) {
+        observer.observe(element);
+      });
+    } else {
+      // Fallback for older browsers
+      revealElements.forEach(function (element) {
+        element.classList.add("visible");
+      });
+    }
+  </script>
+
+</body>
+</html>
 <section class="village-cricket">
   <video autoplay muted loop playsinline controls>
     <source src="kids-cricket.mp4" type="video/mp4">
