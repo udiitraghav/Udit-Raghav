@@ -995,96 +995,30 @@
     </div>
   </footer>
 
-  <script>
-    "use strict";
 
-    // Welcome popup
-    const welcome = document.getElementById("namaste-welcome");
-    const closeButton = document.getElementById("namaste-close");
-
-    function closeWelcome() {
-      if (!welcome) return;
-
-      welcome.classList.add("is-closing");
-
-      // Remove popup after the fade-out animation.
-      window.setTimeout(function () {
-        welcome.remove();
-      }, 450);
-    }
-
-    closeButton.addEventListener("click", closeWelcome);
-
-    // Current year in the footer
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-
-    // Scroll reveal animation
-    const revealElements = document.querySelectorAll(".reveal");
-
-    if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver(
-        function (entries, currentObserver) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-              currentObserver.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.12 }
-      );
-
-      revealElements.forEach(function (element) {
-        observer.observe(element);
-      });
-    } else {
-      // Fallback for older browsers
-      revealElements.forEach(function (element) {
-        element.classList.add("visible");
-      });
-    }
-  </script>
-
-</body>
-</html>
-
-<!-- Real Kids Playing Cricket - Bottom of Website -->
-<section class="real-cricket">
-  <video autoplay muted loop playsinline>
+<section class="village-cricket">
+  <video autoplay muted loop playsinline controls>
     <source src="kids-cricket.mp4" type="video/mp4">
+    Aapka browser video support nahi karta.
   </video>
-  <div class="cricket-caption">
-    🏏 Gully Cricket Time ❤️
-  </div>
 </section>
 
 <style>
-.real-cricket {
-  position: relative;
+.village-cricket {
   width: 100%;
   height: 420px;
+  margin-top: 30px;
   overflow: hidden;
+  border-radius: 14px;
   background: #07101d;
 }
-.real-cricket video {
+.village-cricket video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
-.cricket-caption {
-  position: absolute;
-  bottom: 18px;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 0 2px 10px black;
-}
 @media (max-width: 600px) {
-  .real-cricket { height: 280px; }
+  .village-cricket { height: 260px; }
 }
 </style>
