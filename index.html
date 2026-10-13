@@ -1303,3 +1303,110 @@
   }
 })();
 </script>
+```html
+<!-- Floating Emoji & Cartoon Background -->
+<style>
+#emoji-world {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.float-emoji {
+  position: absolute;
+  left: 0;
+  top: 0;
+  user-select: none;
+  will-change: transform;
+  filter: drop-shadow(0 0 5px #7668ff55);
+}
+
+@keyframes emojiBounce {
+  0%, 100% { scale: 1; }
+  50% { scale: 1.2; }
+}
+
+.float-emoji span {
+  display: inline-block;
+  animation: emojiBounce 1.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-emoji span {
+    animation: none;
+  }
+}
+</style>
+
+<div id="emoji-world" aria-hidden="true"></div>
+
+<script>
+(() => {
+  const world = document.getElementById("emoji-world");
+
+  const emojis = [
+    "🦋", "🐍", "😂", "🤣", "😎", "😍",
+    "🐼", "🐸", "🐵", "🦊", "🐱", "🐶",
+    "🐉", "🦄", "🐢", "🐬", "🦜", "🐝",
+    "❤️", "💜", "💙", "💖", "⭐", "🌙",
+    "✨", "🌈", "🔥", "⚡", "🌸", "🌻",
+    "👻", "🤖", "👽", "🎃", "🍕", "🍔",
+    "🚀", "🎈", "🎉", "🎵", "💎", "👑"
+  ];
+
+  const items = [];
+  const total = 32;
+
+  for (let i = 0; i < total; i++) {
+    const el = document.createElement("div");
+    el.className = "float-emoji";
+
+    const emoji = emojis[
+      Math.floor(Math.random() * emojis.length)
+    ];
+
+    el.innerHTML = "<span></span>";
+    el.firstElementChild.textContent = emoji;
+    world.appendChild(el);
+
+    items.push({
+      el,
+      x: Math.random() * innerWidth,
+      y: Math.random() * innerHeight,
+      vx: (Math.random() - 0.5) * 1.2,
+      vy: (Math.random() - 0.5) * 1.2,
+      size: 18 + Math.random() * 24,
+      angle: Math.random() * 360,
+      spin: (Math.random() - 0.5) * 1.5
+    });
+
+    el.style.fontSize = items[i].size + "px";
+  }
+
+  function animate() {
+    const w = innerWidth;
+    const h = innerHeight;
+
+    items.forEach(item => {
+      item.x += item.vx;
+      item.y += item.vy;
+      item.angle += item.spin;
+
+      if (item.x < -50) item.x = w + 30;
+      if (item.x > w + 50) item.x = -30;
+      if (item.y < -50) item.y = h + 30;
+      if (item.y > h + 50) item.y = -30;
+
+      item.el.style.transform =
+        `translate(${item.x}px, ${item.y}px)
+         rotate(${item.angle}deg)`;
+    });
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+})();
+</script>
