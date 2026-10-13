@@ -415,7 +415,341 @@
     }
   </style>
 </head>
+```html
+<!-- LUXURY SPORTS CAR ANIMATION -->
+<style>
+  #luxury-car-stage {
+    position: fixed;
+    left: 0;
+    bottom: 7vh;
+    width: 100%;
+    height: clamp(150px, 30vw, 300px);
+    z-index: 5;
+    pointer-events: none;
+    overflow: hidden;
+  }
 
+  #luxury-car {
+    position: absolute;
+    width: min(82vw, 900px);
+    min-width: 340px;
+    left: 0;
+    bottom: 0;
+    animation: carDrive 12s linear infinite;
+    filter: drop-shadow(0 12px 18px #0009);
+    will-change: transform;
+  }
+
+  @keyframes carDrive {
+    0% {
+      transform: translateX(-110%);
+    }
+    100% {
+      transform: translateX(110vw);
+    }
+  }
+
+  .car-wheel {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: wheelSpin 0.65s linear infinite;
+  }
+
+  @keyframes wheelSpin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .car-light {
+    animation: headlightGlow 1.5s ease-in-out infinite alternate;
+  }
+
+  @keyframes headlightGlow {
+    from {
+      opacity: 0.55;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 600px) {
+    #luxury-car-stage {
+      bottom: 10vh;
+      height: 160px;
+    }
+
+    #luxury-car {
+      width: 90vw;
+      min-width: 300px;
+      animation-duration: 9s;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #luxury-car {
+      animation: none;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .car-wheel,
+    .car-light {
+      animation: none;
+    }
+  }
+</style>
+
+<div id="luxury-car-stage" aria-hidden="true">
+
+  <svg id="luxury-car"
+       viewBox="0 0 900 360"
+       xmlns="http://www.w3.org/2000/svg">
+
+    <defs>
+      <linearGradient id="carPaint"
+                      x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#a5c7ff"/>
+        <stop offset="20%" stop-color="#536dff"/>
+        <stop offset="55%" stop-color="#242c9b"/>
+        <stop offset="85%" stop-color="#101735"/>
+        <stop offset="100%" stop-color="#080d1b"/>
+      </linearGradient>
+
+      <linearGradient id="glass"
+                      x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#b7efff"/>
+        <stop offset="45%" stop-color="#263e70"/>
+        <stop offset="100%" stop-color="#101528"/>
+      </linearGradient>
+
+      <linearGradient id="metal"
+                      x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#343b55"/>
+        <stop offset="50%" stop-color="#dce8ff"/>
+        <stop offset="100%" stop-color="#424963"/>
+      </linearGradient>
+
+      <linearGradient id="roadGlow"
+                      x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#5d64ff" stop-opacity="0"/>
+        <stop offset="50%" stop-color="#8b80ff" stop-opacity=".7"/>
+        <stop offset="100%" stop-color="#5d64ff" stop-opacity="0"/>
+      </linearGradient>
+
+      <filter id="lightBlur">
+        <feGaussianBlur stdDeviation="10"/>
+      </filter>
+    </defs>
+
+    <!-- Ground shadow -->
+    <ellipse cx="450" cy="304" rx="390" ry="22"
+             fill="#000" opacity=".65"/>
+
+    <!-- Purple neon underneath car -->
+    <ellipse cx="450" cy="300" rx="315" ry="10"
+             fill="url(#roadGlow)" filter="url(#lightBlur)"/>
+
+    <!-- Rear spoiler -->
+    <path d="M145 171 L190 162 L235 173
+             L230 184 L145 184 Z"
+          fill="#14192b" stroke="#7187ff" stroke-width="3"/>
+
+    <path d="M155 168 L143 150 L175 150 L192 166"
+          fill="#252c48" stroke="#9aafff" stroke-width="3"/>
+
+    <!-- Main aerodynamic roof and windows -->
+    <path d="M230 203
+             L300 133
+             Q325 110 377 107
+             L526 110
+             Q561 112 596 148
+             L652 205 Z"
+          fill="url(#carPaint)"
+          stroke="#9ab7ff"
+          stroke-width="4"/>
+
+    <!-- Front windshield -->
+    <path d="M390 121 L515 124
+             Q548 127 577 166
+             L421 166 Z"
+          fill="url(#glass)"
+          stroke="#9dafff"
+          stroke-width="3"/>
+
+    <!-- Side window -->
+    <path d="M311 142
+             Q333 119 375 119
+             L382 166 L288 166 Z"
+          fill="url(#glass)"
+          stroke="#8ca8ff"
+          stroke-width="3"/>
+
+    <!-- Window divider -->
+    <path d="M393 120 L404 168"
+          stroke="#c7d6ff" stroke-width="5"/>
+
+    <!-- Body shell -->
+    <path d="M75 230
+             Q94 205 154 199
+             L250 185
+             L313 174
+             L610 177
+             L692 196
+             Q735 202 780 226
+             L824 244
+             L837 263
+             Q839 281 816 287
+             L89 287
+             Q61 280 64 259 Z"
+          fill="url(#carPaint)"
+          stroke="#9aafff"
+          stroke-width="4"/>
+
+    <!-- Body highlight -->
+    <path d="M170 204 L290 190 L605 190
+             Q680 197 737 225"
+          fill="none" stroke="#c3d6ff"
+          stroke-width="4" opacity=".7"/>
+
+    <!-- Lower side skirt -->
+    <path d="M180 275 L715 275 L682 294
+             L225 294 Z"
+          fill="#11172c" stroke="#667dff"
+          stroke-width="3"/>
+
+    <!-- Door outline -->
+    <path d="M417 176 L430 266 L562 270
+             L588 184"
+          fill="none" stroke="#10152c"
+          stroke-width="4"/>
+
+    <!-- Door handle -->
+    <path d="M470 202 L515 202"
+          stroke="#dbe5ff" stroke-width="4"
+          stroke-linecap="round"/>
+
+    <!-- Front grille -->
+    <path d="M744 235 L811 248 L817 266
+             L757 267 Z"
+          fill="#080d18" stroke="#9eb4ff"
+          stroke-width="3"/>
+
+    <path d="M762 247 L804 255 M760 256 L808 263"
+          stroke="#6379b0" stroke-width="3"/>
+
+    <!-- Headlights glow -->
+    <ellipse class="car-light"
+             cx="748" cy="225" rx="47" ry="12"
+             fill="#b4edff" opacity=".25"
+             filter="url(#lightBlur)"/>
+
+    <!-- Headlight -->
+    <path d="M698 210 L762 219 L745 231
+             L695 225 Z"
+          fill="#d9f8ff"
+          stroke="#ffffff" stroke-width="2"/>
+
+    <path d="M704 216 L750 222"
+          stroke="#80e8ff" stroke-width="5"
+          stroke-linecap="round"/>
+
+    <!-- Rear red light -->
+    <path d="M78 233 L123 220 L133 230
+             L91 243 Z"
+          fill="#ff3d68"
+          stroke="#ffb0c4" stroke-width="2"/>
+
+    <!-- Side mirror -->
+    <path d="M565 177 L594 174 L611 187
+             L583 192 Z"
+          fill="#303e83" stroke="#9cb4ff"
+          stroke-width="3"/>
+
+    <!-- Front wheel arch -->
+    <path d="M572 285
+             A76 76 0 0 1 724 285"
+          fill="#080d1b" stroke="#687fff"
+          stroke-width="5"/>
+
+    <!-- Rear wheel arch -->
+    <path d="M154 285
+             A76 76 0 0 1 306 285"
+          fill="#080d1b" stroke="#687fff"
+          stroke-width="5"/>
+
+    <!-- Rear wheel -->
+    <g class="car-wheel">
+      <circle cx="230" cy="276" r="51"
+              fill="#090b13" stroke="#505977"
+              stroke-width="7"/>
+      <circle cx="230" cy="276" r="37"
+              fill="#1a2034" stroke="url(#metal)"
+              stroke-width="5"/>
+      <circle cx="230" cy="276" r="10"
+              fill="#9db4ff"/>
+
+      <g stroke="#b6caff" stroke-width="7"
+         stroke-linecap="round">
+        <path d="M230 244 L230 265"/>
+        <path d="M230 287 L230 308"/>
+        <path d="M198 276 L219 276"/>
+        <path d="M241 276 L262 276"/>
+        <path d="M207 253 L222 268"/>
+        <path d="M238 284 L253 299"/>
+        <path d="M253 253 L238 268"/>
+        <path d="M222 284 L207 299"/>
+      </g>
+    </g>
+
+    <!-- Front wheel -->
+    <g class="car-wheel">
+      <circle cx="648" cy="276" r="51"
+              fill="#090b13" stroke="#505977"
+              stroke-width="7"/>
+      <circle cx="648" cy="276" r="37"
+              fill="#1a2034" stroke="url(#metal)"
+              stroke-width="5"/>
+      <circle cx="648" cy="276" r="10"
+              fill="#9db4ff"/>
+
+      <g stroke="#b6caff" stroke-width="7"
+         stroke-linecap="round">
+        <path d="M648 244 L648 265"/>
+        <path d="M648 287 L648 308"/>
+        <path d="M616 276 L637 276"/>
+        <path d="M659 276 L680 276"/>
+        <path d="M625 253 L640 268"/>
+        <path d="M656 284 L671 299"/>
+        <path d="M671 253 L656 268"/>
+        <path d="M640 284 L625 299"/>
+      </g>
+    </g>
+
+    <!-- Sports car front splitter -->
+    <path d="M742 282 L833 275 L818 293
+             L731 296 Z"
+          fill="#090d1b" stroke="#899dff"
+          stroke-width="3"/>
+
+    <!-- Decorative side vent -->
+    <path d="M342 226 L392 226 L383 246
+             L337 246 Z"
+          fill="#10162a" stroke="#829aff"
+          stroke-width="2"/>
+
+    <path d="M349 232 L382 232 M346 239 L379 239"
+          stroke="#839dff" stroke-width="2"/>
+
+    <!-- Roof reflection -->
+    <path d="M333 137 L373 123 L383 123"
+          fill="none" stroke="#ffffff"
+          stroke-width="3" opacity=".7"/>
+
+  </svg>
+</div>
+```
 <body>
 
   <!-- SAME FLYING EMOJI BACKGROUND -->
