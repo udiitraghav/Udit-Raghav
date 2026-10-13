@@ -1,4 +1,769 @@
+```html
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d1b">
 
+  <title>Meri Shayari ❤️ | Udit Raghav</title>
+  <meta name="description" content="Romantic shayari, attitude shayari aur dil ki baatein by Udit Raghav.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #080d1b;
+      --card: rgba(19, 25, 45, 0.91);
+      --purple: #b69aff;
+      --pink: #ff91c8;
+      --text: #f6f3ff;
+      --muted: #b4bad0;
+      --border: rgba(182, 154, 255, 0.24);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ANIMATED EMOJI BACKGROUND */
+
+    #emoji-world {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .float-emoji {
+      position: absolute;
+      left: 0;
+      top: 0;
+      line-height: 1;
+      opacity: 0.64;
+      user-select: none;
+      will-change: transform;
+      filter: drop-shadow(0 0 7px rgba(159, 120, 255, 0.3));
+    }
+
+    /* ALL CONTENT STAYS ABOVE BACKGROUND */
+
+    header,
+    main,
+    footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* NAVIGATION */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8, 13, 27, 0.88);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+    }
+
+    .navbar {
+      max-width: 1120px;
+      min-height: 72px;
+      margin: auto;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 19px;
+      font-weight: 800;
+    }
+
+    .brand span {
+      color: var(--pink);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: color 0.25s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--pink);
+    }
+
+    /* HERO SECTION */
+
+    .hero {
+      max-width: 900px;
+      margin: auto;
+      padding: 78px 22px 54px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 9px 15px;
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      background: rgba(182, 154, 255, 0.08);
+      color: var(--purple);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 25px 0 16px;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(39px, 7vw, 70px);
+      line-height: 1.13;
+      letter-spacing: -1.5px;
+    }
+
+    h1 span {
+      color: var(--pink);
+      text-shadow: 0 0 35px rgba(255, 145, 200, 0.22);
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .hero-buttons {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 13px 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: rgba(182, 154, 255, 0.08);
+      text-decoration: none;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      background: rgba(182, 154, 255, 0.16);
+    }
+
+    .btn-primary {
+      color: #160c24;
+      background: linear-gradient(135deg, #d1baff, #ffb0d8);
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #e0d0ff, #ffc4e2);
+    }
+
+    /* SHAYARI SECTIONS */
+
+    .section {
+      max-width: 1120px;
+      margin: auto;
+      padding: 36px 22px 55px;
+      scroll-margin-top: 95px;
+    }
+
+    .section-heading {
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    .section-heading .small-title {
+      color: var(--purple);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      margin: 12px 0;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 42px);
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .shayari-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .shayari-card {
+      position: relative;
+      overflow: hidden;
+      padding: 29px 24px 23px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 12px 38px rgba(0, 0, 0, 0.15);
+      transition: transform 0.25s, border-color 0.25s;
+    }
+
+    .shayari-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 145, 200, 0.6);
+    }
+
+    .card-icon {
+      display: inline-block;
+      margin-bottom: 15px;
+      font-size: 26px;
+    }
+
+    .card-category {
+      margin-bottom: 10px;
+      color: var(--pink);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+    }
+
+    .shayari-card h3 {
+      margin-bottom: 16px;
+      font-size: 19px;
+      font-weight: 700;
+    }
+
+    .poetry {
+      color: #e5e0f5;
+      font-size: 15px;
+      line-height: 2.1;
+      white-space: pre-line;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 23px;
+      padding-top: 17px;
+      border-top: 1px solid rgba(182, 154, 255, 0.14);
+    }
+
+    .signature {
+      color: #9ea6c1;
+      font-size: 12px;
+    }
+
+    .copy-btn {
+      padding: 8px 12px;
+      border-radius: 9px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--purple);
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .copy-btn:hover {
+      background: rgba(182, 154, 255, 0.12);
+    }
+
+    /* DIVIDER */
+
+    .section-divider {
+      max-width: 200px;
+      height: 1px;
+      margin: 0 auto;
+      background: linear-gradient(90deg, transparent, var(--purple), transparent);
+    }
+
+    /* FOOTER */
+
+    footer {
+      margin-top: 20px;
+      padding: 35px 20px;
+      text-align: center;
+      background: rgba(8, 13, 27, 0.75);
+      border-top: 1px solid var(--border);
+    }
+
+    footer p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 2;
+    }
+
+    footer a {
+      color: var(--pink);
+      text-decoration: none;
+    }
+
+    .back-top {
+      display: inline-block;
+      margin-top: 14px;
+      color: var(--purple);
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 650px) {
+      .navbar {
+        min-height: 64px;
+        padding: 12px 16px;
+      }
+
+      .brand {
+        font-size: 16px;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 60px 18px 35px;
+      }
+
+      .section {
+        padding: 30px 16px 40px;
+      }
+
+      .shayari-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .shayari-card {
+        padding: 24px 20px;
+      }
+
+      .poetry {
+        font-size: 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+
+      .float-emoji {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SAME FLYING EMOJI BACKGROUND -->
+  <div id="emoji-world" aria-hidden="true"></div>
+
+  <!-- NAVIGATION -->
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="brand">
+        Udit <span>Raghav.</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html">🏠 Home</a>
+        <a href="#romantic">❤️ Romantic</a>
+        <a href="#attitude">😎 Attitude</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <span class="eyebrow">Words From The Heart</span>
+
+      <h1>
+        Meri Duniya,<br>
+        <span>Meri Shayari ❤️</span>
+      </h1>
+
+      <p>
+        Kuch baatein lafzon mein bayan hoti hain,
+        kuch dil mein reh jaati hain.
+        Welcome to my little world of poetry,
+        feelings aur apne andaaz ki baatein. ✨
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#romantic" class="btn btn-primary">
+          ❤️ Romantic Shayari
+        </a>
+
+        <a href="#attitude" class="btn">
+          😎 Attitude Shayari
+        </a>
+      </div>
+    </section>
+
+    <!-- ROMANTIC SHAYARI -->
+    <section class="section" id="romantic">
+      <div class="section-heading">
+        <div class="small-title">Dil Se ❤️</div>
+        <h2>Romantic Shayari</h2>
+        <p>Mohabbat, ehsaas aur dil ki khoobsurat baatein.</p>
+      </div>
+
+      <div class="shayari-grid">
+
+        <article class="shayari-card">
+          <span class="card-icon">🌹</span>
+          <div class="card-category">Mohabbat</div>
+          <h3>Teri Muskurahat</h3>
+          <p class="poetry">Teri muskurahat meri pehchaan ban jaaye,
+Teri khushi meri jaan ban jaaye.
+Har din bas itni si dua hai meri,
+Teri zindagi khushiyon ka jahaan ban jaaye. ❤️</p>
+          <div class="card-footer">
+            <span class="signature">— Udit Raghav</span>
+            <button class="copy-btn" type="button">📋 Copy Shayari</button>
+          </div>
+        </article>
+
+        <article class="shayari-card">
+          <span class="card-icon">💖</span>
+          <div class="card-category">Dil Ki Baat</div>
+          <h3>Ek Khaas Ehsaas</h3>
+          <p class="poetry">Kuch log dil ke kareeb ho jaate hain,
+Anjaane hokar bhi naseeb ho jaate hain.
+Unki ek muskaan ke liye,
+Humare din bhi haseen ho jaate hain. ✨</p>
+          <div class="card-footer">
+            <span class="signature">— Udit Raghav</span>
+            <button class="copy-btn" type="button">📋 Copy Shayari</button>
+          </div>
+        </article>
+
+        <article class="shayari-card">
+          <span class="card-icon">🌙</span>
+          <div class="card-category">Chaandni</div>
+          <h3>Raat Aur Yaadein</h3>
+          <p class="poetry">Chaand ki roshni mein ek baat yaad aati hai,
+Khamoshi mein bhi ek awaaz sunai aati hai.
+Kuch ehsaas lafzon ke mohtaaj nahi hote,
+Bas unki yaad se chehre par muskaan aati hai. 🌙</p>
+          <div class="card-footer">
+            <span class="signature">— Udit Raghav</span>
+            <button class="copy-btn" type="button">📋 Copy Shayari</button>
+          </div>
+        </article>
+
+        <article class="shayari-card">
+          <span class="card-icon">🫶</span>
+          <div class="card-category">Saath</div>
+          <h3>Khoobsurat Safar</h3>
+          <p class="poetry">Safar khoobsurat ho, zaroori nahi manzil ho,
+Saath dene wala dil se shaamil ho.
+Chhoti-chhoti khushiyon mein jo muskura de,
+Zindagi mein bas aisa hi koi haasil ho. 💕</p>
+          <div class="card-footer">
+            <span class="signature">— Udit Raghav</span>
+            <button class="copy-btn" type="button">📋 Copy Shayari</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ATTITUDE SHAYARI -->
+    <section class="section" id="attitude">
+      <div class="section-heading">
+        <div class="small-title">Apna Andaaz 😎</div>
+        <h2>Attitude Shayari</h2>
+        <p>Apni pehchaan, apne usool aur apna alag andaaz.</p>
+      </div>
+
+      <div class="shayari-grid">
+
+        <article class="shayari-card">
+          <span class="card-icon">👑</span>
+          <div class="card-category">Self Respect</div>
+          <h3>Apni Pehchaan</h3>
+          <p class="poetry">Apni pehchaan khud banayenge,
+Apne dum par aage badh jaayenge.
+Waqt chahe jitne imtihaan le,
+Hum mehnat se apni manzil paayenge. 🔥</p>
+          <div class="card-footer">
+            <span class="signature">— Udit Raghav</span>
+            <button class="copy-btn" type="button">📋 Copy Shayari</button>
+          </div>
+        </article>
+
+        <article class="shayari-card">
+          <span class="card-icon">😎</span>
+          <div class="card-category">Apna Style</div>
+          <h3>Apna Hi Andaaz</h3>
+          <p class="poetry">Na dikhave ka shauk, na jhoothi shaan hai,
+Jo bhi hain, apni mehnat ki pehchaan hain.
+Andaaz apna saadha, iraade kamaal,
+Yahi apni kahaani, yahi apni chaal. ⚡</p>
+          <div class="card-footer">
+            <span class="signature">— Udit Raghav</span>
+            <button class="copy-btn" type="button">📋 Copy Shayari</button>
+          </div>
+        </article>
+
+        <article class="shayari-card">
+          <span class="card-icon">🔥</span>
+          <div class="card-category">Mehnat</div>
+          <h3>Apna Waqt</h3>
+          <p class="poetry">Aaj mehnat hai, kal pehchaan hogi,
+Har mushkil ke baad nayi udaan hogi.
+Khud par bharosa rakhte hain hum,
+Ek din apni bhi alag misaal hogi. 🚀</p>
+          <div class="card-footer">
+            <span class="signature">— Udit Raghav</span>
+            <button class="copy-btn" type="button">📋 Copy Shayari</button>
+          </div>
+        </article>
+
+        <article class="shayari-card">
+          <span class="card-icon">💎</span>
+          <div class="card-category">Usul</div>
+          <h3>Apne Usul</h3>
+          <p class="poetry">Izzat dete hain, izzat chahte hain,
+Sach ke raaste par chalna jaante hain.
+Duniya ki bheed mein alag rehna hai,
+Apne usoolon se pehchaan banate hain. 💯</p>
+          <div class="card-footer">
+            <span class="signature">— Udit Raghav</span>
+            <button class="copy-btn" type="button">📋 Copy Shayari</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- CLOSING MESSAGE -->
+    <section class="hero" style="padding-top: 20px; padding-bottom: 65px;">
+      <h2 style="font-family:'Playfair Display',serif;
+                 font-size: clamp(25px, 4vw, 38px);
+                 color: var(--purple);">
+        Lafz Mere, Ehsaas Mere ✨
+      </h2>
+
+      <p style="margin-top: 15px;">
+        Har shayari ek kahaani hai,
+        har lafz mein ek ehsaas hai.
+        Pasand aaye toh apno ke saath share zaroor karna. ❤️
+      </p>
+
+      <div class="hero-buttons">
+        <a href="index.html" class="btn btn-primary">
+          ← Back to My Portfolio
+        </a>
+
+        <a href="#top" class="btn"
+           onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">
+          ↑ Back to Top
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Made with ❤️ by <strong>Udit Raghav</strong></p>
+    <p>My Personal Shayari Corner · © 2026</p>
+    <p>
+      <a href="index.html">Home</a>
+      &nbsp;·&nbsp;
+      <a href="#romantic">Romantic</a>
+      &nbsp;·&nbsp;
+      <a href="#attitude">Attitude</a>
+    </p>
+  </footer>
+
+  <script>
+    // RANDOM FLYING BUTTERFLIES, SNAKES,
+    // CARTOONS, HEARTS AND OTHER EMOJIS
+
+    (() => {
+      const world = document.getElementById("emoji-world");
+
+      const emojiList = [
+        "🦋", "🐍", "😂", "🤣", "😎", "😍",
+        "🐼", "🐸", "🐵", "🦊", "🐱", "🐶",
+        "🐉", "🦄", "🐢", "🐬", "🦜", "🐝",
+        "❤️", "💜", "💙", "💖", "⭐", "🌙",
+        "✨", "🌈", "🔥", "⚡", "🌸", "🌻",
+        "👻", "🤖", "👽", "🎃", "🎈", "🚀",
+        "🎉", "🎵", "💎", "👑"
+      ];
+
+      const items = [];
+      const count = window.innerWidth < 600 ? 14 : 25;
+
+      for (let i = 0; i < count; i++) {
+        const el = document.createElement("span");
+        el.className = "float-emoji";
+
+        el.textContent =
+          emojiList[Math.floor(Math.random() * emojiList.length)];
+
+        world.appendChild(el);
+
+        items.push({
+          el,
+          x: Math.random() * window.innerWidth,
+          y: Math.random() * window.innerHeight,
+          vx: (Math.random() - 0.5) * 1.15,
+          vy: (Math.random() - 0.5) * 1.15,
+          size: 17 + Math.random() * 19,
+          angle: Math.random() * 360,
+          spin: (Math.random() - 0.5) * 1.1
+        });
+
+        el.style.fontSize = items[i].size + "px";
+      }
+
+      let lastTime = 0;
+
+      function fly(time) {
+        // Limit animation updates for smoother performance.
+        if (time - lastTime >= 25) {
+          lastTime = time;
+
+          const w = window.innerWidth;
+          const h = window.innerHeight;
+
+          items.forEach(item => {
+            item.x += item.vx;
+            item.y += item.vy;
+            item.angle += item.spin;
+
+            if (item.x < -45) item.x = w + 25;
+            if (item.x > w + 45) item.x = -25;
+            if (item.y < -45) item.y = h + 25;
+            if (item.y > h + 45) item.y = -25;
+
+            item.el.style.transform =
+              `translate3d(${item.x}px, ${item.y}px, 0)
+               rotate(${item.angle}deg)`;
+          });
+        }
+
+        requestAnimationFrame(fly);
+      }
+
+      requestAnimationFrame(fly);
+    })();
+
+    // COPY SHAYARI BUTTONS
+
+    document.querySelectorAll(".copy-btn").forEach(button => {
+      button.addEventListener("click", async () => {
+        const card = button.closest(".shayari-card");
+        const heading = card.querySelector("h3").innerText;
+        const poetry = card.querySelector(".poetry").innerText;
+
+        const text = heading + "\n\n" + poetry;
+
+        try {
+          await navigator.clipboard.writeText(text);
+          button.textContent = "✅ Copied!";
+        } catch (error) {
+          const textarea = document.createElement("textarea");
+          textarea.value = text;
+          textarea.style.position = "fixed";
+          textarea.style.opacity = "0";
+          document.body.appendChild(textarea);
+          textarea.select();
+
+          const success = document.execCommand("copy");
+          textarea.remove();
+
+          button.textContent = success
+            ? "✅ Copied!"
+            : "Copy manually";
+
+          if (!success) {
+            window.prompt("Copy your shayari:", text);
+          }
+        }
+
+        setTimeout(() => {
+          button.textContent = "📋 Copy Shayari";
+        }, 1800);
+      });
+    });
+  </script>
+
+</body>
+</html>
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
