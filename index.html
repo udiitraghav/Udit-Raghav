@@ -1048,3 +1048,97 @@
 
 </body>
 </html>
+```html
+<!-- Flying Butterflies Background -->
+<style>
+  .butterfly-bg {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .butterfly {
+    position: absolute;
+    left: -60px;
+    font-size: 25px;
+    opacity: 0.8;
+    animation: butterflyFly linear infinite;
+    filter: drop-shadow(0 0 8px rgba(130, 100, 255, 0.5));
+    will-change: transform;
+  }
+
+  @keyframes butterflyFly {
+    0% {
+      transform: translate(-10vw, 105vh) rotate(0deg);
+    }
+    25% {
+      transform: translate(25vw, 75vh) rotate(20deg);
+    }
+    50% {
+      transform: translate(55vw, 45vh) rotate(-15deg);
+    }
+    75% {
+      transform: translate(80vw, 20vh) rotate(15deg);
+    }
+    100% {
+      transform: translate(115vw, -10vh) rotate(-20deg);
+    }
+  }
+
+  /* Keep website content above the animation */
+  body {
+    position: relative;
+  }
+
+  .butterfly-bg {
+    z-index: 0;
+  }
+
+  body > *:not(.butterfly-bg) {
+    position: relative;
+  }
+
+  /* Mobile optimization */
+  @media (max-width: 600px) {
+    .butterfly {
+      font-size: 18px;
+      opacity: 0.65;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .butterfly {
+      animation-play-state: paused;
+    }
+  }
+</style>
+
+<div class="butterfly-bg" aria-hidden="true">
+  <span class="butterfly"
+    style="top:10%; animation-duration:18s;">🦋</span>
+
+  <span class="butterfly"
+    style="top:35%; animation-duration:24s;
+    animation-delay:-8s;">🦋</span>
+
+  <span class="butterfly"
+    style="top:65%; animation-duration:20s;
+    animation-delay:-14s;">🦋</span>
+
+  <span class="butterfly"
+    style="top:80%; animation-duration:27s;
+    animation-delay:-5s;">🦋</span>
+
+  <span class="butterfly"
+    style="top:45%; animation-duration:22s;
+    animation-delay:-11s;">🦋</span>
+
+  <span class="butterfly"
+    style="top:20%; animation-duration:30s;
+    animation-delay:-19s;">🦋</span>
+</div>
+```
