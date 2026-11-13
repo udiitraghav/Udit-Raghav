@@ -451,6 +451,7 @@ body {
 
 <style>
 
+
 <!-- Bottom Video Animation -->
 <div class="bottom-animation">
     <video autoplay muted loop playsinline>
@@ -461,11 +462,11 @@ body {
 <style>
 .bottom-animation {
     width: 50%;
-    height: 20px;
+    height: 200px;
     overflow: hidden;
     position: relative;
     border-radius: 15px;
-    margin-top: 30px;
+    margin: 30px auto;
 }
 
 .bottom-animation video {
@@ -473,5 +474,12 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+@media (max-width: 768px) {
+    .bottom-animation {
+        width: 90%;
+        height: 160px;
+    }
 }
 </style>
