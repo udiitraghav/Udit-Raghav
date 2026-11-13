@@ -1,0 +1,404 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Udit Raghav | Professional Biography</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #080d1b;
+    color: #ffffff;
+    line-height: 1.8;
+}
+
+.bio-section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 100px 25px;
+}
+
+.section-tag {
+    display: inline-block;
+    color: #a78bfa;
+    background: rgba(139, 92, 246, 0.12);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    padding: 7px 18px;
+    border-radius: 30px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.bio-heading {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(35px, 5vw, 58px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.bio-heading span {
+    background: linear-gradient(90deg, #60a5fa, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bio-intro {
+    color: #b8c2d6;
+    font-size: 17px;
+    max-width: 850px;
+    margin-bottom: 35px;
+}
+
+.bio-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 0.8fr;
+    gap: 25px;
+    margin-top: 45px;
+}
+
+.bio-card {
+    background: linear-gradient(
+        145deg,
+        rgba(30, 41, 75, 0.65),
+        rgba(15, 23, 42, 0.8)
+    );
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    border-radius: 22px;
+    padding: 32px;
+    transition: 0.35s ease;
+}
+
+.bio-card:hover {
+    transform: translateY(-6px);
+    border-color: #818cf8;
+    box-shadow: 0 15px 40px rgba(79, 70, 229, 0.13);
+}
+
+.bio-card h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 23px;
+    margin-bottom: 18px;
+    color: #93c5fd;
+}
+
+.bio-card p {
+    color: #bdc8dc;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.experience-item {
+    border-left: 2px solid #818cf8;
+    padding-left: 18px;
+    margin: 22px 0;
+}
+
+.experience-item h3 {
+    color: #fff;
+    font-size: 17px;
+}
+
+.experience-item span {
+    color: #a78bfa;
+    font-size: 13px;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.skill {
+    padding: 9px 14px;
+    background: rgba(96, 165, 250, 0.1);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    border-radius: 9px;
+    font-size: 13px;
+    color: #bfdbfe;
+    transition: 0.3s;
+}
+
+.skill:hover {
+    background: rgba(139, 92, 246, 0.25);
+    transform: scale(1.04);
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.stat-box {
+    background: rgba(30, 41, 59, 0.7);
+    padding: 18px;
+    border-radius: 14px;
+    text-align: center;
+}
+
+.stat-box h3 {
+    font-size: 25px;
+    color: #93c5fd;
+}
+
+.stat-box p {
+    font-size: 12px;
+    margin: 0;
+}
+
+.quote {
+    margin-top: 35px;
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    background: linear-gradient(
+        110deg,
+        rgba(37, 99, 235, 0.15),
+        rgba(124, 58, 237, 0.15)
+    );
+    border: 1px solid rgba(139, 92, 246, 0.25);
+}
+
+.quote p {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 19px;
+    color: #e0e7ff;
+    font-weight: 600;
+}
+
+.bio-footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #64748b;
+    font-size: 13px;
+}
+
+@media(max-width: 800px) {
+    .bio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bio-section {
+        padding: 65px 18px;
+    }
+
+    .bio-card {
+        padding: 24px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<section class="bio-section">
+
+    <div class="section-tag">✦ MY PROFESSIONAL JOURNEY</div>
+
+    <h1 class="bio-heading">
+        Hello, I'm <span>Udit Raghav</span>
+    </h1>
+
+    <p class="bio-intro">
+        An Accounts Executive and accounting professional passionate
+        about financial accuracy, business management, taxation,
+        and continuous professional growth.
+    </p>
+
+    <div class="bio-grid">
+
+        <!-- LEFT SIDE -->
+        <div>
+
+            <div class="bio-card">
+                <h2>👨‍💼 About Me</h2>
+
+                <p>
+                    I am Udit Raghav, a Commerce graduate who completed
+                    his Bachelor of Commerce (B.Com) in 2025.
+                    I have developed practical experience in accounting,
+                    financial operations, taxation, and business coordination.
+                </p>
+
+                <p>
+                    My professional journey includes working as a
+                    Business Coordinator, Account Intern, Accounts
+                    Assistant, and currently as an Accounts Executive
+                    at OMS Lights & Pole Pvt. Ltd.
+                </p>
+
+                <p>
+                    I specialize in sales and purchase entries, accounts
+                    payable and receivable, bank reconciliation, ledger
+                    management, invoicing, billing, inventory management,
+                    salary payables, and employee attendance management.
+                </p>
+
+                <p>
+                    My internship at CA Saurabh Agrawal & Co. provided
+                    practical exposure to GST and TDS return filing,
+                    bookkeeping, PAN and HUF registrations, audit support,
+                    and financial record management.
+                </p>
+            </div>
+
+            <br>
+
+            <div class="bio-card">
+                <h2>💼 Professional Experience</h2>
+
+                <div class="experience-item">
+                    <h3>Accounts Executive</h3>
+                    <span>OMS Lights & Pole Pvt. Ltd. | Jul 2026 – Present</span>
+                    <p>
+                        Payables, receivables, inventory, salary,
+                        attendance, quotations, and team coordination.
+                    </p>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Accounts Assistant</h3>
+                    <span>RR Infrastructures | Jul 2024 – Jul 2026</span>
+                    <p>
+                        Purchase and sales entries, vouchers, GST
+                        verification, bank reconciliation, and reporting.
+                    </p>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Account Intern</h3>
+                    <span>CA Saurabh Agrawal & Co. | Feb 2024 – Jul 2024</span>
+                    <p>
+                        GST, TDS, bookkeeping, audit support,
+                        registrations, and ledger management.
+                    </p>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Business Coordinator</h3>
+                    <span>Attacktic Labs | Apr 2023 – Feb 2024</span>
+                    <p>
+                        Client communication, documentation,
+                        business coordination, and order tracking.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div>
+
+            <div class="bio-card">
+                <h2>🎓 Education</h2>
+
+                <div class="experience-item">
+                    <h3>Bachelor of Commerce (B.Com)</h3>
+                    <span>2022 – 2025</span>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Class XII</h3>
+                    <span>2021 – 2022</span>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Class X</h3>
+                    <span>2019 – 2020</span>
+                </div>
+
+                <div class="experience-item">
+                    <h3>A.D.C.A Diploma</h3>
+                    <span>2019 – 2020</span>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="bio-card">
+                <h2>💻 Technical Skills</h2>
+
+                <div class="skills">
+                    <span class="skill">Tally ERP 9</span>
+                    <span class="skill">TallyPrime</span>
+                    <span class="skill">Odoo Accounting</span>
+                    <span class="skill">Zoho Books</span>
+                    <span class="skill">MS Excel</span>
+                    <span class="skill">MS Word</span>
+                    <span class="skill">PowerPoint</span>
+                    <span class="skill">GST Filing</span>
+                    <span class="skill">TDS Filing</span>
+                    <span class="skill">Bank Reconciliation</span>
+                    <span class="skill">Bookkeeping</span>
+                    <span class="skill">Invoicing</span>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="bio-card">
+                <h2>📊 Professional Strengths</h2>
+
+                <div class="stats">
+                    <div class="stat-box">
+                        <h3>35 WPM</h3>
+                        <p>English Typing</p>
+                    </div>
+
+                    <div class="stat-box">
+                        <h3>4</h3>
+                        <p>Professional Roles</p>
+                    </div>
+
+                    <div class="stat-box">
+                        <h3>2025</h3>
+                        <p>B.Com Graduate</p>
+                    </div>
+
+                    <div class="stat-box">
+                        <h3>100%</h3>
+                        <p>Learning Mindset</p>
+                    </div>
+                </div>
+
+                <p style="margin-top:20px;">
+                    Attention to detail, organization, time management,
+                    accuracy, and team coordination.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="quote">
+        <p>
+            "Committed to Accuracy, Driven by Learning,
+            Focused on Professional Growth."
+        </p>
+    </div>
+
+    <div class="bio-footer">
+        © 2026 Udit Raghav | Accountant & Accounts Professional
+    </div>
+
+</section>
+
+</body>
+</html>
