@@ -87,107 +87,28 @@
 
     /* Welcome animation */
 
-    <audio id="welcomeClickSound" preload="auto">
-    <source src="Welcome Click Sound.mp3" type="audio/mpeg">
-</audio>
+   <script>
+function enterWebsite() {
 
-    #namaste-welcome {
-      position: fixed;
-      inset: 0;
-      z-index: 99999;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      background: rgba(5, 10, 25, .90);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      animation: welcomeBg .5s ease;
-    }
+    // Welcome click sound
+    const sound = document.getElementById("welcomeClickSound");
 
-    .namaste-box {
-      width: min(480px, 100%);
-      text-align: center;
-      color: white;
-      padding: 30px 20px;
-      background: rgba(16, 24, 43, .94);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      animation: welcomePop .8s ease both;
-    }
+    sound.currentTime = 0;
+    sound.play().catch(error => {
+        console.log("Sound playback issue:", error);
+    });
 
-    .namaste-cartoons {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 22px;
-      font-size: clamp(55px, 13vw, 100px);
-    }
+    // Welcome popup close
+    const welcome = document.getElementById("namaste-welcome");
 
-    .namaste-person {
-      display: inline-block;
-      animation: namasteBow 1.3s ease-in-out infinite alternate;
-      transform-origin: bottom center;
-    }
+    welcome.classList.add("is-closing");
 
-    .namaste-person:nth-child(2) {
-      animation-delay: .25s;
-    }
+    setTimeout(() => {
+        welcome.style.display = "none";
+    }, 450);
 
-    .namaste-box h2 {
-      margin: 18px 0 8px;
-      color: #fcd783;
-      font-size: clamp(24px, 5vw, 34px);
-      letter-spacing: 0;
-    }
-
-    .namaste-box p {
-      margin-bottom: 22px;
-      color: #e2e8f0;
-      font-size: 14px;
-    }
-
-    #namaste-close {
-      padding: 12px 26px;
-      border: 0;
-      border-radius: 30px;
-      background: linear-gradient(100deg, #fbbf24, #fb923c);
-      color: #271300;
-      font-size: 15px;
-      font-weight: 800;
-      cursor: pointer;
-      transition: transform .2s ease;
-    }
-
-    #namaste-close:hover {
-      transform: translateY(-2px);
-    }
-
-    #namaste-welcome.is-closing {
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity .45s ease, visibility .45s ease;
-    }
-
-    @keyframes namasteBow {
-      from { transform: translateY(0) rotate(-4deg); }
-      to { transform: translateY(-8px) rotate(4deg); }
-    }
-
-    @keyframes welcomePop {
-      from { opacity: 0; transform: scale(.75); }
-      to { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes welcomeBg {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    <audio id="welcome Click Sound" preload="auto">
-    <source src="Welcome Click Sound.mp3" type="audio/mpeg">
-</audio>
-
+}
+</script>
 <script>
 function enterWebsite() {
     const sound = document.getElementById("welcome Click Sound");
