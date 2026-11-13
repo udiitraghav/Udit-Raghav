@@ -1046,24 +1046,36 @@
     }
   </script>
 
-<a href="./index2.html" class="bio-button">
-                                               Explore My Biography <span>→</span>
-</a>
+
+<div class="bio-button-container">
+    <a href="./index2.html" class="bio-button">
+        Explore My Biography <span>→</span>
+    </a>
+</div>
 
 <style>
+.bio-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+    text-align: center;
+}
+
 .bio-button {
     display: inline-flex;
-    align-items: middle;
+    align-items: center;
+    justify-content: center;
     gap: 12px;
-    padding: 15px 28px;
+    padding: 15px 30px;
     border-radius: 12px;
     background: linear-gradient(90deg, #2563eb, #7c3aed);
     color: white !important;
     text-decoration: none !important;
     font-size: 15px;
     font-weight: 700;
-    cursor: pointer;
-    transition: 0.3s;
+    transition: 0.3s ease;
 }
 
 .bio-button:hover {
@@ -1075,4 +1087,3 @@
     font-size: 22px;
 }
 </style>
-
