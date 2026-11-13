@@ -87,37 +87,27 @@
 
     /* Welcome animation */
 
-   <script>
-function enterWebsite() {
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
 
-    // Welcome click sound
-    const sound = document.getElementById("welcomeClickSound");
+    const welcomePopup = document.getElementById("namaste-welcome");
+    const welcomeSound = document.getElementById("welcomeClickSound");
 
-    sound.currentTime = 0;
-    sound.play().catch(error => {
-        console.log("Sound playback issue:", error);
-    });
+    if (welcomePopup && welcomeSound) {
 
-    // Welcome popup close
-    const welcome = document.getElementById("namaste-welcome");
+        welcomePopup.addEventListener("click", function () {
 
-    welcome.classList.add("is-closing");
+            welcomeSound.currentTime = 0;
 
-    setTimeout(() => {
-        welcome.style.display = "none";
-    }, 450);
+            welcomeSound.play().catch(function(error) {
+                console.log("Sound could not play:", error);
+            });
 
-}
-</script>
-<script>
-function enterWebsite() {
-    const sound = document.getElementById("welcome Click Sound");
+        });
 
-    sound.currentTime = 0;
-    sound.play();
+    }
 
-    // Tumhara existing welcome overlay hide karne wala code
-}
+});
 </script>
     /* Navigation */
 
