@@ -1045,6 +1045,34 @@
       });
     }
   </script>
-<a href="about.html" class="about-btn">
-    Explore My Bio →
-</a>"index2.html"
+
+<a href="./index2.html" class="bio-button">
+    Explore My Biography <span>→</span>
+</a>
+
+<style>
+.bio-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 28px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
+    color: white !important;
+    text-decoration: none !important;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.bio-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px #4338ca66;
+}
+
+.bio-button span {
+    font-size: 22px;
+}
+</style>
+
