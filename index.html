@@ -87,28 +87,100 @@
 
     /* Welcome animation */
 
-  <script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    const welcomePopup = document.getElementById("namaste-welcome");
-    const welcomeSound = document.getElementById("welcomeClickSound");
-
-    if (welcomePopup && welcomeSound) {
-
-        welcomePopup.addEventListener("click", function () {
-
-            welcomeSound.currentTime = 0;
-
-            welcomeSound.play().catch(function(error) {
-                console.log("Sound could not play:", error);
-            });
-
-        });
-
+ 
+    #namaste-welcome {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background: rgba(5, 10, 25, .90);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      animation: welcomeBg .5s ease;
     }
 
-});
-</script>
+    .namaste-box {
+      width: min(480px, 100%);
+      text-align: center;
+      color: white;
+      padding: 30px 20px;
+      background: rgba(16, 24, 43, .94);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      animation: welcomePop .8s ease both;
+    }
+
+    .namaste-cartoons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 22px;
+      font-size: clamp(55px, 13vw, 100px);
+    }
+
+    .namaste-person {
+      display: inline-block;
+      animation: namasteBow 1.3s ease-in-out infinite alternate;
+      transform-origin: bottom center;
+    }
+
+    .namaste-person:nth-child(2) {
+      animation-delay: .25s;
+    }
+
+    .namaste-box h2 {
+      margin: 18px 0 8px;
+      color: #fcd783;
+      font-size: clamp(24px, 5vw, 34px);
+      letter-spacing: 0;
+    }
+
+    .namaste-box p {
+      margin-bottom: 22px;
+      color: #e2e8f0;
+      font-size: 14px;
+    }
+
+    #namaste-close {
+      padding: 12px 26px;
+      border: 0;
+      border-radius: 30px;
+      background: linear-gradient(100deg, #fbbf24, #fb923c);
+      color: #271300;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .2s ease;
+    }
+
+    #namaste-close:hover {
+      transform: translateY(-2px);
+    }
+
+    #namaste-welcome.is-closing {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .45s ease, visibility .45s ease;
+    }
+
+    @keyframes namasteBow {
+      from { transform: translateY(0) rotate(-4deg); }
+      to { transform: translateY(-8px) rotate(4deg); }
+    }
+
+    @keyframes welcomePop {
+      from { opacity: 0; transform: scale(.75); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes welcomeBg {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     /* Navigation */
 
     header {
