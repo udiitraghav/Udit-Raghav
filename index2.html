@@ -440,3 +440,21 @@ body {
     }
 }
 </style>
+
+<!-- Background Video Animation -->
+<video id="bgAnimation" autoplay muted loop playsinline>
+    <source src="./16532063-uhd_1920_1440_60fps.mp4" type="video/mp4">
+</video>
+
+<style>
+#bgAnimation {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.35;
+}
+</style>
