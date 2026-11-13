@@ -1079,3 +1079,256 @@ hanumanAudio.addEventListener("ended", function() {
 </script>
 
 
+<!-- HANUMAN JI DIVINE ANIMATION -->
+
+<section class="hanuman-divine">
+
+    <div class="divine-glow"></div>
+    <div class="divine-particles" id="divineParticles"></div>
+
+    <div class="saffron-flag">🚩</div>
+
+    <div class="hanuman-halo"></div>
+
+    <div class="hanuman-figure">
+        <div class="hanuman-symbol">🙏</div>
+        <div class="hanuman-name">श्री हनुमते नमः</div>
+        <div class="hanuman-gada">🪷</div>
+    </div>
+
+    <div class="divine-text">
+        <h2>जय श्री राम</h2>
+        <p>जय बजरंगबली 🙏</p>
+        <span>जहाँ राम का नाम है, वहाँ हनुमान हैं।</span>
+    </div>
+
+</section>
+
+<style>
+
+.hanuman-divine {
+    position: relative;
+    min-height: 480px;
+    width: 100%;
+    margin: 35px auto;
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: 22px;
+    background: radial-gradient(
+        circle at center,
+        #4b210d,
+        #170d12 55%,
+        #080d1b 100%
+    );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+/* GOLDEN GLOW */
+
+.divine-glow {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: #ff8c18;
+    filter: blur(100px);
+    opacity: .28;
+    animation: divineGlow 4s infinite alternate;
+}
+
+@keyframes divineGlow {
+    from { transform: scale(.8); opacity: .15; }
+    to { transform: scale(1.3); opacity: .4; }
+}
+
+/* HALO */
+
+.hanuman-halo {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border: 4px solid #ffbd51;
+    border-radius: 50%;
+    box-shadow:
+        0 0 20px #ff9b24,
+        0 0 50px #ff8c18,
+        inset 0 0 30px #ff8c18;
+    animation: haloRotate 15s linear infinite;
+}
+
+@keyframes haloRotate {
+    to { transform: rotate(360deg); }
+}
+
+/* HANUMAN SYMBOL */
+
+.hanuman-figure {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: hanumanFloat 3s ease-in-out infinite;
+}
+
+.hanuman-symbol {
+    font-size: 100px;
+    filter: drop-shadow(0 0 20px #ffae35);
+    animation: symbolGlow 2s infinite alternate;
+}
+
+.hanuman-name {
+    color: #ffd17c;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+    text-shadow: 0 0 15px #ff9b24;
+}
+
+.hanuman-gada {
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+@keyframes hanumanFloat {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+@keyframes symbolGlow {
+    from { filter: drop-shadow(0 0 8px #ff8c18); }
+    to { filter: drop-shadow(0 0 28px #ffbd51); }
+}
+
+/* FLAG */
+
+.saffron-flag {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    font-size: 55px;
+    transform-origin: bottom center;
+    animation: flagWave 2s ease-in-out infinite;
+}
+
+@keyframes flagWave {
+    0%,100% { transform: rotate(-8deg); }
+    50% { transform: rotate(8deg); }
+}
+
+/* TEXT */
+
+.divine-text {
+    position: relative;
+    z-index: 4;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.divine-text h2 {
+    font-size: 32px;
+    color: #ffc15b;
+    text-shadow: 0 0 20px #ff8c18;
+    margin: 8px;
+}
+
+.divine-text p {
+    font-size: 19px;
+    color: white;
+}
+
+.divine-text span {
+    font-size: 13px;
+    color: #e8c9a3;
+}
+
+/* PARTICLES */
+
+.divine-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.divine-particle {
+    position: absolute;
+    bottom: -10px;
+    width: 4px;
+    height: 4px;
+    background: #ffc15b;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #ff9b24;
+    animation: particleRise 6s linear infinite;
+}
+
+@keyframes particleRise {
+    from {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    20% { opacity: 1; }
+    to {
+        transform: translateY(-500px);
+        opacity: 0;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:600px) {
+    .hanuman-divine {
+        min-height: 420px;
+    }
+
+    .hanuman-halo {
+        width: 210px;
+        height: 210px;
+    }
+
+    .hanuman-symbol {
+        font-size: 80px;
+    }
+
+    .divine-text h2 {
+        font-size: 25px;
+    }
+
+    .saffron-flag {
+        right: 15px;
+        font-size: 40px;
+    }
+}
+
+</style>
+
+<script>
+
+// DIVINE FLOATING PARTICLES
+
+const divineBox =
+    document.getElementById("divineParticles");
+
+for (let i = 0; i < 40; i++) {
+
+    const p = document.createElement("span");
+
+    p.className = "divine-particle";
+
+    p.style.left = Math.random() * 100 + "%";
+
+    p.style.animationDuration =
+        (4 + Math.random() * 5) + "s";
+
+    p.style.animationDelay =
+        Math.random() * 6 + "s";
+
+    divineBox.appendChild(p);
+}
+
+</script>
+
