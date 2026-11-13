@@ -804,3 +804,276 @@ uditSection.addEventListener("mouseleave", function() {
 });
 
 </script>
+
+<!-- HANUMAN BHAJAN MUSIC PLAYER -->
+
+<div class="hanuman-player">
+
+    <div class="music-aura"></div>
+
+    <div class="hanuman-disc" id="hanumanDisc">
+        <div class="disc-inner">
+            <span>🙏</span>
+        </div>
+    </div>
+
+    <div class="hanuman-info">
+        <div class="music-label">✦ DIVINE MUSIC ✦</div>
+
+        <h2>Hanuman Bhajan</h2>
+
+        <p>Maine Tere Hi Bharose Hanuman</p>
+
+        <div class="music-wave" id="musicWave">
+            <i></i><i></i><i></i><i></i><i></i>
+            <i></i><i></i><i></i><i></i>
+        </div>
+
+        <button id="hanumanPlay" class="hanuman-button">
+            ▶ Play Bhajan
+        </button>
+
+        <p class="music-status" id="musicStatus">
+            Tap to listen 🙏
+        </p>
+    </div>
+
+    <audio id="hanumanAudio" loop preload="metadata">
+        <source src="./Maine Tere Hi Bharose Hanuman (Lyrical Video) Hanuman Ansh Suneel Lodhi Neem Karoli Baba.mp3"
+                type="audio/mpeg">
+    </audio>
+
+</div>
+
+<style>
+
+.hanuman-player {
+    position: relative;
+    width: 90%;
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 30px 20px;
+    background: linear-gradient(135deg,#111d3b,#080d1b);
+    border: 1px solid rgba(100,150,255,.3);
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    overflow: hidden;
+    color: white;
+    font-family: Arial,sans-serif;
+    box-shadow: 0 0 35px rgba(50,100,255,.15);
+}
+
+.music-aura {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: #ff9b25;
+    filter: blur(100px);
+    opacity: .15;
+    pointer-events: none;
+}
+
+/* ROTATING DISC */
+
+.hanuman-disc {
+    width: 145px;
+    height: 145px;
+    min-width: 145px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #ffb347,
+        #8e3b12,
+        #ffd36b,
+        #9e4d16,
+        #ffb347
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 25px #ff9e35;
+    animation: discGlow 3s infinite alternate;
+}
+
+.disc-inner {
+    width: 115px;
+    height: 115px;
+    background: radial-gradient(circle,#57240b,#171020);
+    border: 2px solid #ffc36a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 45px;
+}
+
+.hanuman-disc.playing {
+    animation: discRotate 7s linear infinite;
+}
+
+@keyframes discRotate {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes discGlow {
+    from { box-shadow: 0 0 15px #ff9e35; }
+    to { box-shadow: 0 0 35px #ffb347; }
+}
+
+/* TEXT */
+
+.hanuman-info {
+    position: relative;
+    z-index: 2;
+}
+
+.music-label {
+    color: #ffc16c;
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.hanuman-info h2 {
+    font-size: 24px;
+    margin: 9px 0;
+}
+
+.hanuman-info p {
+    color: #bdc9e6;
+    font-size: 13px;
+}
+
+/* BUTTON */
+
+.hanuman-button {
+    margin-top: 10px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(90deg,#ff9d32,#ffca68);
+    color: #211000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.hanuman-button:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 20px #ffae45;
+}
+
+.music-status {
+    font-size: 11px !important;
+}
+
+/* MUSIC WAVES */
+
+.music-wave {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 25px;
+    margin-top: 12px;
+}
+
+.music-wave i {
+    display: block;
+    width: 4px;
+    height: 5px;
+    border-radius: 5px;
+    background: #ffb347;
+}
+
+.music-wave.active i {
+    animation: musicBars .7s ease-in-out infinite alternate;
+}
+
+.music-wave i:nth-child(2n) {
+    animation-delay: .2s;
+}
+
+.music-wave i:nth-child(3n) {
+    animation-delay: .4s;
+}
+
+@keyframes musicBars {
+    to { height: 24px; }
+}
+
+/* MOBILE */
+
+@media(max-width:550px) {
+    .hanuman-player {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .music-wave {
+        justify-content: center;
+    }
+
+    .hanuman-info h2 {
+        font-size: 21px;
+    }
+}
+
+</style>
+
+<script>
+
+const hanumanAudio =
+    document.getElementById("hanumanAudio");
+
+const hanumanButton =
+    document.getElementById("hanumanPlay");
+
+const hanumanDisc =
+    document.getElementById("hanumanDisc");
+
+const musicWave =
+    document.getElementById("musicWave");
+
+const musicStatus =
+    document.getElementById("musicStatus");
+
+hanumanButton.addEventListener("click", async function() {
+
+    if (hanumanAudio.paused) {
+
+        try {
+            await hanumanAudio.play();
+
+            hanumanButton.innerHTML = "❚❚ Pause Bhajan";
+            hanumanDisc.classList.add("playing");
+            musicWave.classList.add("active");
+            musicStatus.innerHTML = "Playing Bhajan 🙏";
+
+        } catch (error) {
+            musicStatus.innerHTML =
+                "Song load nahi hua. File path check karein.";
+        }
+
+    } else {
+
+        hanumanAudio.pause();
+
+        hanumanButton.innerHTML = "▶ Play Bhajan";
+        hanumanDisc.classList.remove("playing");
+        musicWave.classList.remove("active");
+        musicStatus.innerHTML = "Bhajan Paused";
+
+    }
+
+});
+
+hanumanAudio.addEventListener("ended", function() {
+    hanumanButton.innerHTML = "▶ Play Bhajan";
+    hanumanDisc.classList.remove("playing");
+    musicWave.classList.remove("active");
+});
+
+</script>
