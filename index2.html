@@ -443,10 +443,27 @@ body {
 
 
 <!-- Bottom Video Animation -->
-<div class="bottom-animation">
-    <video autoplay muted loop playsinline>
-        <source src="./17038683_1920_1080_30fps.mp4" type="video/mp4">
-    </video>
-</div>
-
 <style>
+.bottom-animation {
+    width: 50%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 15px;
+    margin: 30px auto;
+}
+
+.bottom-animation video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .bottom-animation {
+        width: 90%;
+        height: 160px;
+    }
+}
+</style>
